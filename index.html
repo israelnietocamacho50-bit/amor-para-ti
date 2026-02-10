@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para el amor de mi vida</title>
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff3f6;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.card{
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+.text{
+  font-size:1.1rem;
+  color:#333;
+  margin-bottom:15px;
+}
+
+.tree{
+  position:relative;
+  width:200px;
+  height:220px;
+  margin:20px auto;
+}
+
+.trunk{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:30px;
+  height:80px;
+  background:#8b5a2b;
+  border-radius:10px;
+}
+
+.heart{
+  position:absolute;
+  color:#e63946;
+  font-size:22px;
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
+
+.counter{
+  margin-top:15px;
+  font-weight:bold;
+  color:#e63946;
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div class="text">
+    <strong>PARA EL AMOR DE MI VIDA:</strong><br><br>
+    Si pudiera elegir un lugar siempre será a tu lado.<br><br>
+    Doy gracias a el haber entrado a la normal y poderte conocer,
+    no sabes lo feliz que me haces.<br><br>
+    <strong>Te amo ❤️</strong>
+  </div>
+
+  <div class="tree">
+    <div class="trunk"></div>
+
+    <!-- Corazones -->
+    <span class="heart" style="top:20px; left:60px;">❤</span>
+    <span class="heart" style="top:30px; left:90px;">❤</span>
+    <span class="heart" style="top:50px; left:40px;">❤</span>
+    <span class="heart" style="top:70px; left:100px;">❤</span>
+    <span class="heart" style="top:60px; left:140px;">❤</span>
+    <span class="heart" style="top:90px; left:70px;">❤</span>
+    <span class="heart" style="top:110px; left:110px;">❤</span>
+  </div>
+
+  <div class="counter" id="contador"></div>
+</div>
+
+<script>
+const inicio = new Date("2025-12-24T09:00:00");
+
+function actualizar(){
+  const ahora = new Date();
+  let diff = ahora - inicio;
+
+  if(diff < 0){
+    document.getElementById("contador").innerHTML =
+      "Nuestro amor comienza el 24 de diciembre de 2025 ❤️";
+    return;
+  }
+
+  let segundos = Math.floor(diff / 1000);
+  let minutos = Math.floor(segundos / 60);
+  let horas = Math.floor(minutos / 60);
+  let dias = Math.floor(horas / 24);
+
+  horas %= 24;
+  minutos %= 60;
+  segundos %= 60;
+
+  document.getElementById("contador").innerHTML =
+    `Mi amor por ti comenzó hace<br>
+     ${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos 💕`;
+}
+
+setInterval(actualizar,1000);
+actualizar();
+</script>
+</body>
+</html>
